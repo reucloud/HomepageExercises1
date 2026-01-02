@@ -6,14 +6,24 @@
   </head>
   <body>
     <header id="header"></header>
-    <main></main>
-    <footer></footer>
+    <main id="main"></main>
+    <footer id="footer"></footer>
 
     <script>
       fetch("header.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("header").innerHTML = html;
+        });
+      fetch("main.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("main").innerHTML = html;
+        });
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
         });
     </script>
   </body>

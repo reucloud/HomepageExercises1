@@ -1,0 +1,12 @@
+.footer {
+  margin: 60px 40px 60px 40px;
+  display: flex;
+  border-top: 1px solid #cdcdcd;
+  padding-top: 40px;
+}
+.guide,
+.discount,
+.help,
+.information {
+  width: 20%;
+}
