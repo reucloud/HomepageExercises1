@@ -10,4 +10,69 @@
     <a href="/index.html"><li>近日販売</li></a>
     <a href="/index.html"><li>マップ</li></a>
   </div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
+
+<!-- オーバーレイ（背景を暗くする） -->
+<div class="overlay" id="overlay"></div>
+
+<!-- サイドメニュー -->
+<div class="side-menu" id="sideMenu">
+  <h3>メニュー</h3>
+  <ul>
+    <li><a href="#">アカウント</a></li>
+    <li><a href="#">お気に入り</a></li>
+    <li><a href="#">注文履歴</a></li>
+    <li><a href="#">設定</a></li>
+    <li><a href="#">ヘルプ</a></li>
+    <li><a href="#">ログアウト</a></li>
+  </ul>
+</div>
+<script>
+  // DOMが完全に読み込まれてから実行
+  document.addEventListener("DOMContentLoaded", function () {
+    // ハンバーガーメニューの動作
+    const hamburger = document.getElementById("hamburger");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+
+    console.log("hamburger:", hamburger);
+    console.log("sideMenu:", sideMenu);
+    console.log("overlay:", overlay);
+
+    if (!hamburger || !sideMenu || !overlay) {
+      console.error("要素が見つかりません");
+      return;
+    }
+
+    // ハンバーガーボタンをクリック
+    hamburger.addEventListener("click", () => {
+      console.log("hamburger clicked");
+      hamburger.classList.toggle("active");
+      sideMenu.classList.toggle("active");
+      overlay.classList.toggle("active");
+    });
+
+    // オーバーレイをクリックしたらメニューを閉じる
+    overlay.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      sideMenu.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    // メニュー内のリンクをクリックしたら閉じる
+    const menuLinks = sideMenu.querySelectorAll("a");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        sideMenu.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    });
+  });
+</script>
