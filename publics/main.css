@@ -1,9 +1,19 @@
 .main {
   margin: 60px 40px 60px 40px;
-  height: 700px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
 }
-img {
-  height: 500px;
-  width: auto;
+.item img {
+  width: 100%;
+  height: auto;
+  background-color: rgb(234, 234, 234);
+}
+.detail {
+  p,
+  h5,
+  h4 {
+    margin: 5px 0px;
+  }
 }
